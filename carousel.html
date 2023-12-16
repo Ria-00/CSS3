@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel effect</title>
+    <style>
+        body{
+            overflow-x:hidden;
+        }
+        img{
+            width: 100%;
+            height: calc(100vh - 100px);
+            object-fit: cover;
+        }
+
+        #slider{
+            width:500%;
+            animation:carousel 10s infinite linear;
+        }
+
+        .slide{
+            width:25%;
+            display: inline-block;
+            margin: 6px 2px;
+        }
+        
+        @keyframes carousel{
+            0%,30%{
+                transform: translateX(0%);
+            }
+            30%,60%{
+                transform: translateX(-30%);
+            }
+            60%,90%{
+                transform: translateX(-60%);
+            }
+            100%{
+                transform: translateX(0%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="slider">
+        <div class="slide">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQpb2pZJEzKID-F5t1VweL7GZyfKZfsWepmlaTQcHXhGM31u8Apqto7abx8ejp5usyrcQ&usqp=CAU" alt="">
+        </div>
+        <div class="slide">
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Jim-halpert.jpg" alt="">
+        </div>
+        <div class="slide">
+            <img src="https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
+

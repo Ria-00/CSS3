@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="height: 100%; width: 800px;">
+        <label for="x">Value 1</label>
+        <input type="text" name="x" id="x">
+        <br><br>
+        <label for="y">Value 2</label>
+        <input type="text" name="y" id="y">
+        <br><br>
+        <button onclick="sum()">Sum</button>
+        <br><br>
+        <label for="z">Result:</label>
+        <!-- <p id="z"></p> -->
+        <input type="text" id="z"><br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_parent" title="hjk">hhj</a>
+    </div>
+
+    <script>
+        function sum(){
+            var x=document.getElementById("x").value;
+            var y=document.getElementById("y").value;
+            console.log(x);
+            var z=parseInt(x)+parseInt(y);
+            document.getElementById("z").value=z;
+            // document.write("Hello World");
+            
+        }
+    </script>
+</body>
+</html>

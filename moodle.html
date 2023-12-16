@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        margin: auto;
+        position: relative;
+      }
+
+      .carousel-item {
+        border: solid 2px #2f2d2d;
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 152px;
+        padding: 10px;
+        margin-right: 10px;
+        width: 344px;
+      }
+
+      .carousel-container {
+        display: flex;
+        flex-wrap: nowrap; /* Ensure items stay in a single row */
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .img {
+        max-height: 70px;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+        width: auto;
+      }
+
+      .arrow {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        color: #333;
+        background: none;
+        border: none;
+        outline: none;
+      }
+
+      .arrow-left {
+        left: 10px;
+      }
+
+      .arrow-right {
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="arrow arrow-left" onclick="prevSlide()">&#8249;</button>
+      <div class="elements">
+        <div class="carousel-container" id="carousel-container">
+          <div class="carousel-item">
+            <img class="img" src="1.webp" alt="" />
+          </div>
+          <div class="carousel-item">
+            <img class="img" src="1.webp" alt="" />
+          </div>
+          <div class="carousel-item">
+            <img class="img" src="1.webp" alt="" />
+          </div>
+          <div class="carousel-item">
+            <img class="img" src="1.webp" alt="" />
+          </div>
+          <div class="carousel-item">
+            <img class="img" src="1.webp" alt="" />
+          </div>
+          <div class="carousel-item">
+            <img class="img" src="1.webp" alt="" />
+          </div>
+          <div class="carousel-item">
+            <img class="img" src="1.webp" alt="" />
+          </div>
+        </div>
+      </div>
+      <button class="arrow arrow-right" onclick="nextSlide()">&#8250;</button>
+    </div>
+    <script>
+      const container = document.getElementById('carousel-container');
+      let currentIndex = 0;
+      let flag=1;  
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % (container.children.length);
+        // flag=1;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + container.children.length) % (container.children.length);
+        // flag=0;
+        updateCarousel();
+      }
+
+      function updateCarousel() {
+        const translateValue = -currentIndex * 100 + '%';
+        container.style.transform = 'translateX(' + translateValue + ')';
+        /* if (flag==1) {
+            container.style.transform = 'translateX(-400px)';
+        } else {
+            container.style.transform = 'translateX(400px)';
+        } */
+        
+      }
+
+    //   setInterval(nextSlide, 6000); // Change slide every 6 seconds
+    </script>
+  </body>
+</html>
